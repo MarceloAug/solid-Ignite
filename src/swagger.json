@@ -37,7 +37,37 @@
                 },
                 "responses":{
                     "201":{
-                        "description":"created"
+                        "description":"created",
+                         "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type":"array",
+                                    "items":{
+                                        "type":"object",
+                                        "properties":{
+                                             "id":{
+                                                "type":"string"
+                                            },
+                                            "name":{
+                                                "type":"string"
+                                            },
+                                            "email":{
+                                                "type":"string"
+                                            },
+                                            "admin":{
+                                                "type":"boolean"
+                                            },
+                                            "created_at":{
+                                                "type":"date"
+                                            },
+                                            "update_at":{
+                                                "type":"date"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400":{
                         "description":"Error"
@@ -45,7 +75,7 @@
                 }
             },
 
-                "patch":{
+            "patch":{
                 "tags":["users"],
                 "summary":"Turn user Admin",
                 "description":"Turn user Admin",
@@ -76,11 +106,130 @@
                                     "items":{
                                         "type":"object",
                                         "properties":{
+                                             "id":{
+                                                "type":"string"
+                                            },
                                             "name":{
                                                 "type":"string"
                                             },
-                                            "description":{
+                                            "email":{
                                                 "type":"string"
+                                            },
+                                            "admin":{
+                                                "type":"boolean"
+                                            },
+                                            "created_at":{
+                                                "type":"date"
+                                            },
+                                            "update_at":{
+                                                "type":"date"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404":{
+                        "description":"Error"
+                    }
+                }
+            },
+
+            "get":{
+                "tags":["users"],
+                "summary":"List User",
+                "description":"List User",
+                 "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "user_id":{
+                                        "type":"string"
+                                    }
+                                },
+                                "example":{
+                                    "user_id": "d065a6a0-04b3-4455-8aed-bb73fae757ac"
+                                }
+                            }
+                        }
+                    }
+                },          
+                "responses":{
+                    "200":{
+                        "description":"success",
+                      "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type":"array",
+                                    "users":{
+                                        "type":"object",
+                                        "properties":{
+                                             "id":{
+                                                "type":"string"
+                                            },
+                                            "name":{
+                                                "type":"string"
+                                            },
+                                            "email":{
+                                                "type":"string"
+                                            },
+                                            "admin":{
+                                                "type":"boolean"
+                                            },
+                                            "created_at":{
+                                                "type":"date"
+                                            },
+                                            "update_at":{
+                                                "type":"date"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404":{
+                        "description":"Error"
+                    }
+                }
+
+            },
+
+            
+            "get":{
+                "tags":["users"],
+                "summary":"List  All User",
+                "description":"List All  User",         
+                "responses":{
+                    "200":{
+                        "description":"success",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type":"array",
+                                    "users":{
+                                        "type":"object",
+                                        "properties":{
+                                             "id":{
+                                                "type":"string"
+                                            },
+                                            "name":{
+                                                "type":"string"
+                                            },
+                                            "email":{
+                                                "type":"string"
+                                            },
+                                            "admin":{
+                                                "type":"boolean"
+                                            },
+                                            "created_at":{
+                                                "type":"date"
+                                            },
+                                            "update_at":{
+                                                "type":"date"
                                             }
                                         }
                                     }
@@ -92,6 +241,7 @@
                         "description":"Error"
                     }
                 }
+
             }
         }
     }

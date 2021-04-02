@@ -9,7 +9,7 @@ class ListAllUsersController {
 		try{
 			const { user_id } = request.headers;
 			const user = this.listAllUsersUseCase.execute({user_id});
-			return response.status(201).json(user).send();
+			return response.status(200).json(user).send();
 		}catch(message){
 			return response.status(400).json({ error: message}).send();
 		}
