@@ -1,0 +1,99 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+        "title":"RentalX Documentation",
+        "description":"This is an API Rent",
+        "version": "1.0.0",
+        "contact" :{
+            "email":"marcelomab09@gmail.com"
+        }
+    },
+    "paths":{
+        "/users":{
+            "post":{
+                "tags":["Users"],
+                "summary":"Create User",
+                "description":"Create a new user",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "name":{
+                                        "type":"string"
+                                    },
+                                    "email":{
+                                        "type":"string"
+                                    }
+                                },
+                                "example":{
+                                    "name":"usuario teste",
+                                    "email":"marcelomab09@gmail.com"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description":"created"
+                    },
+                    "400":{
+                        "description":"Error"
+                    }
+                }
+            },
+
+                "patch":{
+                "tags":["users"],
+                "summary":"Turn user Admin",
+                "description":"Turn user Admin",
+                 "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "user_id":{
+                                        "type":"string"
+                                    }
+                                },
+                                "example":{
+                                    "user_id": "d065a6a0-04b3-4455-8aed-bb73fae757ac"
+                                }
+                            }
+                        }
+                    }
+                },          
+                "responses":{
+                    "200":{
+                        "description":"success",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type":"array",
+                                    "items":{
+                                        "type":"object",
+                                        "properties":{
+                                            "name":{
+                                                "type":"string"
+                                            },
+                                            "description":{
+                                                "type":"string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "description":"Error"
+                    }
+                }
+            }
+        }
+    }
+
+}
